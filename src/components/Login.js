@@ -5,10 +5,11 @@ import { LoginData } from "../utils/LoginData";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-
+  // thi is for check only
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
+
   const handleValid = () => {
     const message = LoginData(
       email.current.value,
