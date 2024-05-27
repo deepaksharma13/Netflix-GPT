@@ -20,21 +20,21 @@ const Header = () => {
 
   useEffect(() => {
   const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const { uid, email, displayName,photoURL } = user;
-        dispatch(
-          addUser({ 
-            uid: uid, 
-            email: email, 
-            displayName: displayName, 
-            photoURL:photoURL, 
-          })
-        );
-        navigate("/browser")
-      } else {
-        dispatch(removeUser());
-        navigate("/")
-      }
+    if (user) {
+      const { uid, email, displayName, photoURL } = user;
+      dispatch(
+        addUser({
+          uid: uid,
+          email: email,
+          displayName: displayName,
+          photoURL: photoURL,
+        })
+      );
+      navigate("/browser");
+    } else {
+      dispatch(removeUser());
+      navigate("/");
+    }
     });
     // this will be called unsubscribe when component unmount
     return ()=> unsubscribe();
@@ -52,7 +52,7 @@ const Header = () => {
       />
       {user && (
         <div className="flex">
-          <img alt="logout-logo" src={user?.photoURL} className="h-10" />
+          {/* <img alt="logout-logo" src={user?.photoURL} className="h-10" /> */}
           <button
             onClick={handleSingout}
             className="bg-red-500 font-bold text-white p-2"
